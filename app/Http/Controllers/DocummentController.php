@@ -58,7 +58,9 @@ class DocummentController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $doc = Documment::find($id);
+        $doc->update($request->all());
+        return $doc;
     }
 
     /**

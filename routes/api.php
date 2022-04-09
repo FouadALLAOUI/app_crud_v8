@@ -14,17 +14,23 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::resource('documments', DocummentController::class); // all function without authentif
+//Route::resource('documments', DocummentController::class); // all function (CRUD) without authentif 
+//Route::get('/documments/search/{name}', [DocummentController::class,'search']); // for search by name
 
-
-
-//Route::get('/documments', [DocummentController::class,'index']);
-//Route::post('/documments', [DocummentController::class,'store']);
-
- 
- 
-
-
-Route::middleware('auth:api')->get('/user', function (Request $request) {
+Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
+});
+
+
+//Route::get('/documments', [DocummentController::class,'index']); // get all doc
+//Route::post('/documments', [DocummentController::class,'store']); // add new doc
+
+ 
+ 
+
+
+Route::middleware('auth:api')->get('/user', function () {
+    
+
+    
 });

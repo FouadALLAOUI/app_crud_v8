@@ -82,7 +82,7 @@ class DocummentController extends Controller
      */
     public function search($name)
     {
-       return Documment::where('name', 'like' ,'%'.$name.'%')->get(); // for name or part of name
+       return Documment::where('intitule', 'like' ,'%'.$name.'%')->get(); // for name or part of name
     } 
 
 

@@ -16,14 +16,20 @@ use Illuminate\Support\Facades\Route;
 
 //Route::get('/documments', [DocummentController::class,'index']); // get all doc
 //Route::post('/documments', [DocummentController::class,'store']); // add new doc
-
 //Route::resource('documments', DocummentController::class); // all function (CRUD) without authentif 
 //Route::get('/documments/search/{name}', [DocummentController::class,'search']); // for search by name
 
+//Public routes
+Route::get('/documments', [DocummentController::class,'index']);
+Route::get('/documments/{id}', [DocummentController::class,'show']);
+Route::get('/documments/search/{name}', [DocummentController::class,'search']);
+
+
+//Protected routes
 Route::group(['middleware' => ['auth:sanctum']], function () {
-
-    Route::get('/documments/search/{name}', [DocummentController::class,'search']);
-
+    Route::post('/documments', [DocummentController::class,'store']);
+    Route::put('/documments/{id}', [DocummentController::class,'update']);
+    Route::delete('/documments/{id}', [DocummentController::class,'destroy']);
 });
 
 

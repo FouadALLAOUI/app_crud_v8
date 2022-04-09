@@ -18,10 +18,6 @@ Route::resource('documments', DocummentController::class);
 
 
 
-
-
-
-
 //Route::get('/documments', [DocummentController::class,'index']);
 //Route::post('/documments', [DocummentController::class,'store']);
 

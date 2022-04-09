@@ -20,7 +20,7 @@ use Illuminate\Support\Facades\Route;
 //Route::resource('documments', DocummentController::class); // all function (CRUD) without authentif 
 //Route::get('/documments/search/{name}', [DocummentController::class,'search']); // for search by name
 
-Route::middleware('auth:sanctum')->get('/documments', function (Request $request) {
+Route::middleware(['middleware' => ['auth:sanctum']], function () {
 
     Route::get('/documments/search/{name}', [DocummentController::class,'search']);
 
@@ -32,6 +32,6 @@ Route::middleware('auth:sanctum')->get('/documments', function (Request $request
  
 
 
-Route::middleware('auth:api')->get('/user', function () {
+Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });

@@ -71,6 +71,6 @@ class DocummentController extends Controller
      */
     public function destroy($id)
     {
-        //
+       return Documment::destroy($id);
     }
 }

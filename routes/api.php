@@ -1,5 +1,5 @@
 <?php
-
+use App\Http\Controllers\DocummentController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -14,9 +14,23 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/documments', function () {
-    return 'documments';
+Route::get('/documments', [DocummentController::class,'index']);
+
+
+Route::post('/documments', function(){
+    return Documment::create([
+        'propr' => 'Fouad',
+        'intitule' => 'Art of war',
+        'auteur' => 'Fouad ALLAOUI',
+        'description' => 'fnezfjzehzfhez feznfzejfzoeuf zezehfjezouz zefze',
+        'type_document' => 'PDF',
+        'visibility' => True,
+        'archive' => TRUE
+    ]);
 });
+
+
+
 
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {

@@ -14,23 +14,19 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/documments', [DocummentController::class,'index']);
-
-
-Route::post('/documments', function(){
-    return Documment::create([
-        'propr' => 'Fouad',
-        'intitule' => 'Art of war',
-        'auteur' => 'Fouad ALLAOUI',
-        'description' => 'fnezfjzehzfhez feznfzejfzoeuf zezehfjezouz zefze',
-        'type_document' => 'PDF',
-        'visibility' => True,
-        'archive' => TRUE
-    ]);
-});
+Route::resource('documments', DocummentController::class);
 
 
 
+
+
+
+
+//Route::get('/documments', [DocummentController::class,'index']);
+//Route::post('/documments', [DocummentController::class,'store']);
+
+ 
+ 
 
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {

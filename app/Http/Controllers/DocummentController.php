@@ -27,7 +27,15 @@ class DocummentController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'propr'   => 'required'     ,
+            'intitule'  => 'required'   ,
+            'auteur'    => 'required'   ,
+            'type_document' => 'required',
+            'visibility'  => 'required' ,
+            'archive'    => 'required'
+        ]);
+        return Documment::create($request->all());
     }
 
     /**
@@ -38,7 +46,7 @@ class DocummentController extends Controller
      */
     public function show($id)
     {
-        //
+        return Documment::find($id);    
     }
 
     /**

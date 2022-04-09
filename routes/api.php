@@ -1,5 +1,6 @@
 <?php
 use App\Http\Controllers\DocummentController;
+use App\Http\Controllers\AuthController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -19,7 +20,12 @@ use Illuminate\Support\Facades\Route;
 //Route::resource('documments', DocummentController::class); // all function (CRUD) without authentif 
 //Route::get('/documments/search/{name}', [DocummentController::class,'search']); // for search by name
 
+
+
+
 //Public routes
+Route::post('/register', [AuthController::class,'register']);
+
 Route::get('/documments', [DocummentController::class,'index']);
 Route::get('/documments/{id}', [DocummentController::class,'show']);
 Route::get('/documments/search/{name}', [DocummentController::class,'search']);

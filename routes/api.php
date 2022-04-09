@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::resource('documments', DocummentController::class);
+Route::resource('documments', DocummentController::class); // all function without authentif
 
 
 

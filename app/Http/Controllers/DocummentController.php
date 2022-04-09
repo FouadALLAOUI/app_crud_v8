@@ -73,4 +73,19 @@ class DocummentController extends Controller
     {
        return Documment::destroy($id);
     }
+
+    /**
+     * Search for a name.
+     *
+     * @param  int  $name
+     * @return \Illuminate\Http\Response
+     */
+    public function search($name)
+    {
+       return Documment::where('name', 'like' ,'%'.$name.'%')->get(); // for name or part of name
+    } 
+
+
+
+
 }
